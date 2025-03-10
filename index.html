@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Class Homepage - SWE645</title>
+    
+    <!-- W3.CSS Framework -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .survey-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body class="w3-light-grey">
+
+    <!-- Main Container -->
+    <div class="container w3-white w3-padding-large w3-card w3-round">
+        <h1 class="w3-text-teal">Welcome to My SWE645 Homepage</h1>
+        <p>Hi, I'm Venna Sujith Reddy, a student at George Mason University, Fairfax.  
+           This webpage is created for SWE645 - Assignment 1 and hosted on AWS S3.</p>
+
+        <!-- Image Carousel -->
+        <div class="w3-content w3-display-container" style="max-width:800px">
+            <img class="slides w3-image w3-round" src="gmu1.webp" alt="GMU Campus 1" style="width:100%">
+            <img class="slides w3-image w3-round" src="gmu2.webp" alt="GMU Campus 2" style="width:100%">
+            <img class="slides w3-image w3-round" src="gmu3.webp" alt="GMU Campus 3" style="width:100%">
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+
+        <!-- Survey Button -->
+        <div class="survey-button">
+            <a href="http://ec2-3-84-157-114.compute-1.amazonaws.com" class="w3-button w3-teal w3-round w3-padding-large">Take the Survey</a>
+        </div>
+
+        <p class="w3-text-grey w3-padding">This website is hosted on AWS S3, and the survey is deployed on an EC2 instance.</p>
+    </div>
+
+    <!-- JavaScript for Image Carousel -->
+    <script>
+        var slideIndex = 0;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var slides = document.getElementsByClassName("slides");
+            if (n >= slides.length) { slideIndex = 0 }
+            if (n < 0) { slideIndex = slides.length - 1 }
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+        }
+
+        // Auto-play the slideshow every 3 seconds
+        setInterval(function() { plusDivs(1); }, 3000);
+    </script>
+
+</body>
+</html>
