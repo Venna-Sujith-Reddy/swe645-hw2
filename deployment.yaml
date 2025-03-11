@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swe645-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: swe645-web
+  template:
+    metadata:
+      labels:
+        app: swe645-web
+    spec:
+      containers:
+      - name: swe645-web-container
+        image: vennasujithreddy44/swe645-web:v1  # Replace with your Docker Hub username
+        ports:
+        - containerPort: 8080
